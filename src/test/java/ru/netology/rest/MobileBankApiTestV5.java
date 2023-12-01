@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import static io.restassured.RestAssured.given;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.hamcrest.Matchers.*;
-
+import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 class MobileBankApiTestV5 {
     @Test
     void shouldReturnDemoAccounts() {
@@ -20,7 +20,7 @@ class MobileBankApiTestV5 {
           .get("/demo/accounts")
       // Проверки
       .then()
-          .statusCode(200)
+          .statusCode(300)
           .contentType(ContentType.JSON)
           .body("every{ it.balance >= 0 }", is(true))
       ;
